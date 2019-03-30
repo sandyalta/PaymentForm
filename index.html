@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delivery</title>
+	<script src="vue.js"></script> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="header">
+		<div class="tab" style="background-color: #F57F17; color: #FFFDE7">1</div>
+		<div class="textTab">Delivery</div>
+		<div class="tab">2</div>
+		<div class="textTab">Payment</div>
+		<div class="tab">3</div>
+		<div class="textTab">Finish</div>
+	</div>
+	<div class="yeji" id="app">
+		<div class="lia">
+			<div id="chae">
+				<a href="">Back to chart</a>
+				<h1 class="ment">Delivery details</h1><br>
+				<input type="text" id="name" class="text1"  placeholder="Name" v-model="name" v-on:blur="nameValidation()":class="className"><br><br>
+				<input type="text" id="noHP" class="text1" placeholder="Phone Number" v-model="noHP" v-on:blur="hpValidation()":class="classHP"><br><br>
+				<textarea placeholder="Delivery Address" id="address" class="textArea" v-model="address" v-on:blur="addressValidation()":class="classAddress"></textarea>
+				<p>Address Character = {{address.length}}</p>
+			</div>
+			<div id="yuna">
+				<input type="checkbox" id="checkSend" class="send" v-model="checkSend" v-on:click="checkboxValidation()">Send as dropshipper<br><br><br><br><br>
+				<input type="text" id="dropName" class="text2" placeholder="Dropshipper Name" v-model="dropName" v-on:blur="dropNameValidation()":class="classDropName" disabled=""><br>
+				<input type="text" id="dropHP" class="text2" placeholder="Dropshipper Phone Number" v-model="dropHP" v-on:blur="dropHPValidation()":class="classDropHP" disabled=""><br>
+			</div>
+		</div>
+		<div class="ryu">
+			<h2 class="summary">Summary</h2>
+			<h6>10 items purchased</h6><br>
+			<br><br><br><br>
+
+			<span class="text3">Cost of goods</span> 
+			<b>500000</b><br><br>
+
+			<div v-if="feeDropShipping">
+				<span class="text3">Dropshipping fee</span>
+				<b>5900</b><br><br>
+			</div>
+			<span class="total">Total</span>
+			<b>{{total}}</b><br><br>
+
+			<button class="btn" onclick="location.href='izone.html'">Continue to Payment</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

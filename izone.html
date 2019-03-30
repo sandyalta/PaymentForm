@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment</title>
+	<script src="vue.js"></script> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="header">
+		<div class="tab" style="background-color: #F57F17; color: #FFFDE7">1</div>
+		<div class="textTab">Delivery</div>
+		<div class="tab" style="background-color: #F57F17; color: #FFFDE7">2</div>
+		<div class="textTab">Payment</div>
+		<div class="tab">3</div>
+		<div class="textTab">Finish</div>
+	</div>
+	<div class="yeji" id="app">
+		<div class="lia">
+			<a href="index.html">Back to delivery</a>
+			<h1 class="ment">Shipment</h1>
+			<br>	
+			<div class="pilih" id="goSend" v-on:click="checkGOShipment()" :class="goSendColor">
+				GO-SEND <br>
+				15.000
+			</div>
+			<div class="pilih" id="jne" v-on:click="checkJNEShipment()" :class="jneColor">
+				JNE <br>
+				9.000
+			</div>
+			<div class="pilih" id="solo" v-on:click="checkSoloShipment()" :class="soloColor">
+				Personal Courier <br>
+				29.000
+			</div>
+			<br><br><br><br><br><br>
+			<h1 class="ment">Payment</h1>
+			<br>
+			<div class="pilih" id="eWallet" v-on:click="payWith('e-Wallet',1)" :class="eWalletColor">
+				e-Wallet <br>
+				1.500.000 left
+			</div>
+			<div class="pilih" id="bank" v-on:click="payWith('Bank',2)" :class="bankColor">Bank Transfer</div>
+			<div class="pilih" id="virtual" v-on:click="payWith('virtual',3)" :class="virtualColor">Virtual Account</div>
+		
+		</div>
+		<div class="ryu">
+			<h2 class="summary">Summary</h2>
+			<h6>10 items purchased</h6><br>
+			<br><br>
+			<div v-if="feeShipment">
+				<span>Delivery estimation</span><br>
+				<b>{{shipmentDate}}</b><br><br>
+			</div>
+			<span class="text3">Cost of goods</span> 
+			<b>500000</b><br><br>
+
+			<div v-if="feeDropShipping">
+				<span class="text3">Dropshipping fee</span>
+				<b>5900</b><br><br>
+			</div>
+
+			<div v-if="feeShipment">
+				<span class="text3">{{shipmentName}} Shipment</span>
+				<b>{{shipmentFee}}</b><br>	
+			</div>
+
+			<span class="total">Total</span>
+			<b>{{total}}</b><br><br>
+
+			<button id="btnPay" onclick="location.href='twice.html'">Pay with {{paymentName}}</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
